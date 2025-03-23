@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadHarvest - Local Business Lead Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-leaf logo-icon"></i>
+                <h1>LeadHarvest</h1>
+            </div>
+            <h2>Local Business Lead Generator</h2>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="card">
+                    <h3>Find Business Leads</h3>
+                    <p>Enter search criteria to start scraping Google Maps for business leads.</p>
+                    
+                    <form id="search-form">
+                        <div class="form-group">
+                            <label for="query">Business Type</label>
+                            <input type="text" id="query" name="query" required placeholder="restaurants, plumbers, dentists, etc.">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" required placeholder="New York, NY">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="max-results">Maximum Results</label>
+                            <input type="number" id="max-results" name="max-results" min="1" max="100" value="20">
+                        </div>
+                        
+                        <div class="form-group checkboxes">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="include-emails" name="include-emails" checked>
+                                <label for="include-emails">Find Email Addresses</label>
+                            </div>
+                            
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="include-email-templates" name="include-email-templates" checked>
+                                <label for="include-email-templates">Generate Email Templates</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn primary">Start Scraping</button>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="jobs-section">
+                <div class="card">
+                    <h3>Scraping Jobs</h3>
+                    <p>Your recent scraping jobs will appear here.</p>
+                    
+                    <div id="jobs-container">
+                        <div class="loading-message">Loading jobs...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 LeadHarvest. All rights reserved.</p>
+            <p class="disclaimer">Use responsibly and in compliance with applicable laws and regulations.</p>
+        </footer>
+    </div>
+
+    <!-- Job template -->
+    <template id="job-template">
+        <div class="job-card">
+            <div class="job-header">
+                <h4 class="job-title"></h4>
+                <span class="job-status"></span>
+            </div>
+            
+            <div class="job-progress-container">
+                <div class="job-progress-bar">
+                    <div class="job-progress"></div>
+                </div>
+                <span class="job-progress-text"></span>
+            </div>
+            
+            <p class="job-message"></p>
+            
+            <div class="job-actions">
+                <a href="#" class="btn download-json" target="_blank">Download JSON</a>
+                <a href="#" class="btn download-csv" target="_blank">Download CSV</a>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html> 
